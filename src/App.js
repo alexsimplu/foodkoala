@@ -1,25 +1,20 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Restaurants from './features/Restaurants/Restaurants';
+import NavBar from './components/NavBar/NavBar';
+import { Container } from 'react-bootstrap';
 
-import * as firebase from 'firebase/app';
-
-const firebaseConfig = {
-    apiKey: 'AIzaSyAFBV1vWOBT3WyWrfaTtvm4Y8DqYVxLcVk',
-    authDomain: 'foof-koala.firebaseapp.com',
-    databaseURL: 'https://foof-koala.firebaseio.com',
-    projectId: 'foof-koala',
-    storageBucket: 'foof-koala.appspot.com',
-    messagingSenderId: '758863475140',
-    appId: '1:758863475140:web:d6cefd8bd5b82f7acff491',
-    measurementId: 'G-TTHCDDCHYM',
-};
-
-firebase.initializeApp(firebaseConfig);
-
-function App() {
+const App = () => {
     return (
-        <div className='App'>
-            <header className='App-header'>Food Koala</header>
-        </div>
+        <Container fluid>
+            <Router>
+                <NavBar/>
+                <Switch>
+                    <Route to="/restaurants" component={Restaurants}/>
+                </Switch>
+            </Router>
+        </Container>
     );
 }
 
