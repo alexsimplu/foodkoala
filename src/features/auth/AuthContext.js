@@ -15,8 +15,8 @@ function AuthContextProvider({children}) {
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-              // User is signed in.
               setValue({isAuthenticated: true, user});
+              
             } else {
               // User is signed out.
               setValue(initialValue);
