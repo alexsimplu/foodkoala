@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
-import * as firebase from "firebase/app";
 import "firebase/auth";
 import {auth} from '../../Firebase'
 
 import { useForm } from '../../hooks';
 import { AuthContext } from './AuthContext';
 import { Redirect, useLocation, Link } from 'react-router-dom';
-import { ErrorContext } from '../../components/Error/ErrorContext';
 
 export default function Login() {
     const { values, bindInput } = useForm(null);

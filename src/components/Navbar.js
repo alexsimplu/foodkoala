@@ -6,7 +6,7 @@ import "firebase/auth";
 import { AuthContext } from '../features/auth/AuthContext';
 
 export default function Navbar() {
-    const { isAuthenticated, user } = useContext(AuthContext);
+    const { isAuthenticated, displayName } = useContext(AuthContext);
 
     async function handleLogout(e) {
         e.preventDefault();
@@ -44,7 +44,7 @@ export default function Navbar() {
                     ) : (
                         <>
                             <li className="nav-item">
-                                Welcome, {user.email}!
+                                Welcome, {displayName}!  
                             </li>
                             <li className="nav-item">
                                 <a href="/" onClick={handleLogout}>Logout</a>
