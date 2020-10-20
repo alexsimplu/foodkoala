@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import firebase from '../../config/Firebase/Firebase';
+import React, { useState, useEffect } from 'react'
+import firebase from '../../config/Firebase/Firebase'
+import Restaurant from '../Restaurant/Restaurant'
 
 const RestaurantsList = () => {
     const [restaurants, setRestaurants] = useState([]);
@@ -13,7 +14,7 @@ const RestaurantsList = () => {
 
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    result.push(data);
+                    result.push({...data, id: doc.id});
                 })
 
                 setRestaurants(result)
@@ -26,9 +27,9 @@ const RestaurantsList = () => {
 
     console.log(restaurants)
     return (
-        <div>
-            restaurants list
-        </div>
+        <>
+            { restaurants.map(restaurant => <Restaurant key={restaurant.name} restaurant={restaurant}/>) }
+        </>
     )
 }
 
