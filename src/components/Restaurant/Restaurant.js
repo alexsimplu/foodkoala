@@ -9,7 +9,7 @@ const Restaurant = ({ restaurant }) => {
             <h1>{name}</h1>
             <p>{description}</p>
             <p>
-                <Button href={`/restaurants/${id}/products`} variant="primary">See products</Button>
+                <Button href={`/restaurants/${id}/products`} variant="dark">See products</Button>
             </p>
         </Jumbotron>
     )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../../config/Firebase/Firebase'
 import Product from '../Product/Product'
+import { Row, Col } from 'react-bootstrap'
 
 const ProductsList = props => {
     const { restaurantId } = props
@@ -22,8 +23,6 @@ const ProductsList = props => {
 
                 setProducts(result)
             })
-
-            console.log(products)
     }
 
     useEffect(() => {
@@ -31,9 +30,9 @@ const ProductsList = props => {
     }, [])
 
     return (
-        <>
-            {products.map(product => <Product key={product.name} product={product}/>)}
-        </>
+        <Row xs={1} lg={2}>
+            {products.map(product => <Col><Product key={product.name} product={product}/></Col>)}
+        </Row>
     )
 }
 

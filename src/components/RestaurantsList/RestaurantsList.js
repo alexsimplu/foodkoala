@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import firebase from '../../config/Firebase/Firebase'
 import Restaurant from '../Restaurant/Restaurant'
 
+
 const RestaurantsList = () => {
     const [restaurants, setRestaurants] = useState([]);
 
