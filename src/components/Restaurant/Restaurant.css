@@ -1,0 +1,18 @@
+.restaurant-entity {
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: 3px 5px 5px 5px rgba(136, 136, 127, 0.4);
+}
+
+.restaurant-entity h1 {
+    font-size: 1.6rem;
+    color: rgb(135, 150, 50);
+}
+
+.restaurant-entity img {
+    width: 25%;
+}
+
+.restaurant-entity:hover{
+    transform: scale(1.015);
+}

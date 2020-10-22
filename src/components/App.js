@@ -2,11 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as firebase from 'firebase/app';
 
-import Navbar from './Navbar';
+import CustomNav from './Navbar';
 import ErrorContextProvider from './Error/ErrorContext';
 import Error from './Error/Error';
 import Login from '../features/auth/Login';
 import Register from '../features/auth/Register';
+import Restaurants from '../features/Restaurants/Restaurants';
+import Products from '../features/Products/Products';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import { AuthContextProvider } from '../features/auth/AuthContext';
@@ -19,23 +21,13 @@ function App() {
                 <ErrorContextProvider>
                     <Error />
                     <Router>
-                        <Navbar />
+                        <CustomNav />
                         <Switch>
-                            <Route
-                                exact
-                                path='/login'
-                                component={Login}
-                            />
-                            <Route
-                                exact
-                                path='/register'
-                                component={Register}
-                            />
-                            <Route
-                                exact
-                                path='/'
-                                component={() => <h1>Homepage</h1>}
-                            />
+                            <Route exact path='/login' component={Login}/>
+                            <Route exact path='/register' component={Register}/>
+                            <Route exact path="/restaurants" component={Restaurants}/>
+                            <Route exact path="/restaurants/:restaurant_id/products" component={Products}/>
+                            <Route exact path='/' component={() => <h1>Homepage</h1>}/>
                             <Route component={() => <h1>404</h1>} />
                         </Switch>
                     </Router>

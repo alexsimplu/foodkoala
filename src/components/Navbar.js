@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import * as firebase from "firebase/app";
 import "firebase/auth"; 
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 
 import { AuthContext } from '../features/auth/AuthContext';
 
-export default function Navbar() {
+export default function CustomNav() {
     const { isAuthenticated, displayName } = useContext(AuthContext);
 
     async function handleLogout(e) {
@@ -19,18 +20,14 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="navbar navbar-light navbar-expand bg-light">
-            <Link className="navbar-brand" to="/">Food Koala</Link>
-
-            <div className="collapse navbar-collapse">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <SrNavLink className="nav-link" exact to="/">Home</SrNavLink>
-                    </li>
-                    <li className="nav-item">
-                        <SrNavLink className="nav-link" to="/restaurants">Restaurants</SrNavLink>
-                    </li>
-                </ul>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">Food Koala</Navbar.Brand>
+            <Nav className="mr-auto">
+                <SrNavLink className="nav-link" to="/restaurants">Home</SrNavLink>
+            </Nav>
+            <Form inline>
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                <Button variant="outline-info">Search</Button>
                 <ul className="navbar-nav">
                     {!isAuthenticated ? (
                         <>
@@ -43,17 +40,17 @@ export default function Navbar() {
                         </>
                     ) : (
                         <>
-                            <li className="nav-item">
-                                Welcome, {displayName}!  
+                            <li className="nav-link">
+                                Welcome, {displayName}!    
                             </li>
                             <li className="nav-item">
-                                <a href="/" onClick={handleLogout}>Logout</a>
+                                <a className="nav-link" href="/" onClick={handleLogout}>Logout</a>
                             </li>
                         </>
                     )}
                 </ul>
-            </div>
-        </nav>
+            </Form>
+        </Navbar>       
     )
 }
 
