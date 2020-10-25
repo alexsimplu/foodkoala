@@ -18,7 +18,7 @@ const ProductsList = props => {
                 snapshot.forEach(doc => {
                     const data = doc.data();
                     console.log(data)
-                    result.push(data);
+                    result.push({...data, id: doc.id});
                 })
 
                 setProducts(result)
@@ -31,7 +31,7 @@ const ProductsList = props => {
 
     return (
         <Row xs={1} lg={2}>
-            {products.map(product => <Col><Product key={product.name} product={product}/></Col>)}
+            {products.map(product => <Col><Product key={product.id} restaurantId={restaurantId} product={product} /></Col>)}
         </Row>
     )
 }

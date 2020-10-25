@@ -5,6 +5,7 @@ import "firebase/auth";
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 
 import { AuthContext } from '../features/auth/AuthContext';
+import { CartIcon } from './Cart/Icons';
 
 export default function CustomNav() {
     const { isAuthenticated, displayName } = useContext(AuthContext);
@@ -42,6 +43,9 @@ export default function CustomNav() {
                         <>
                             <li className="nav-link">
                                 Welcome, {displayName}!    
+                            </li>
+                            <li className="nav-item">
+                                <SrNavLink className="nav-link" to="/cart"> My Cart </SrNavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/" onClick={handleLogout}>Logout</a>
