@@ -26,8 +26,6 @@ export default function CustomNav() {
                 <SrNavLink className="nav-link" to="/restaurants">Home</SrNavLink>
             </Nav>
             <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-info">Search</Button>
                 <ul className="navbar-nav">
                     {!isAuthenticated ? (
                         <>
