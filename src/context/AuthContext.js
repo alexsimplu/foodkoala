@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { getUserDocument } from '../../Firebase'
+import { getUserDocument } from '../Firebase'
 
 const initialValue = {
     isAuthenticated: false,

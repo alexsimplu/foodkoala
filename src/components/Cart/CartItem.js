@@ -1,54 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from './Icons'
-import { CartContext } from './CartContext';
-import{computeTotalPrice} from './CartUtils';
+import { CartContext } from '../../context/CartContext';
 
 
 export const CartItem = ({product}) => {
 
-    const  [productsList, setProductsList, numberOfItems, setNumberOfItemes, totalPrice, setTotalPrice, checkout, setCheckout] = useContext(CartContext);
+    const  [productsList, setProductsList, numberOfItems, setNumberOfItemes, totalPrice, setTotalPrice, checkout, setCheckout, addItem, removeItem] = useContext(CartContext);
     const [quantity, setQuantity] = useState(product.quantity)
-    const increase =  () => {
-        productsList.forEach(cp => {
-            if (cp.id == product.id) {
-              cp.quantity = cp.quantity + 1;
-              setQuantity(cp.quantity);
-            }
-          });
-          let price = product.price;
-           price = +price;
-           setNumberOfItemes(numberOfItems + 1);
-          setTotalPrice(totalPrice + price)
+    const increase =  () => {        
+        addItem(product);
+        setQuantity(quantity + 1);
     }
 
-    const decrease =  () => {
-        productsList.forEach(cp => {
-            if (cp.id == product.id && cp.quantity > 0) {
-              cp.quantity = cp.quantity - 1;
-              setQuantity(cp.quantity);
-              setNumberOfItemes(numberOfItems - 1);
-              let price = cp.price;
-                price = +price;
-                setTotalPrice(totalPrice - price)
-            }
-          });
-    }
-
-    const removeProduct = () => {
-        for (let i = 0; i < productsList.length; i ++){
-            const cp = productsList[i];
-            if (cp.id == product.id && cp.restaaurantId == product.restaaurantId && cp.quantity > 0) {
-                let price = cp.price;
-                price = +price;
-                setTotalPrice(totalPrice - price)
-                productsList.splice(i,1);
-                
-                
-                break;
-            }
-        }
-        setNumberOfItemes(numberOfItems - 1);
-        setProductsList(productsList);
+    const removeProduct = (product) => {
+        removeItem(product);
+        setQuantity(quantity - 1);
     }
     const normalize = name => {
         let imageRef = name.split(' ').map(name => name.toLowerCase()).join('-')
@@ -84,7 +50,7 @@ export const CartItem = ({product}) => {
                  {
                      product.quantity > 1 &&
                      <button
-                    onClick={() => decrease(product)}
+                    onClick={() => removeProduct(product)}
                     className="btn btn-danger btn-sm mb-1">
                         <MinusCircleIcon width={"20px"}/>
                     </button>

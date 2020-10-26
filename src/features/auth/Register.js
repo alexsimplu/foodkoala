@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import { Redirect, Link } from 'react-router-dom';
 import { auth, generateUserDocument } from '../../Firebase.js';
 
-import { AuthContext } from './AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");

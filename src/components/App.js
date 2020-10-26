@@ -9,10 +9,10 @@ import Login from '../features/auth/Login';
 import Register from '../features/auth/Register';
 import Restaurants from '../features/Restaurants/Restaurants';
 import Products from '../features/Products/Products';
-import {CartContextProvider} from '../components/Cart/CartContext'
-import Cart from '../features/Cart'
+import {CartContextProvider} from '../context/CartContext'
+import Cart from '../features/Cart/Cart'
 import 'bootstrap/dist/css/bootstrap.css';
-import { AuthContextProvider } from '../features/auth/AuthContext';
+import { AuthContextProvider } from '../context/AuthContext';
 
 
 function App() {

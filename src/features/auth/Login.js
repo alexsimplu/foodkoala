@@ -3,7 +3,7 @@ import "firebase/auth";
 import {auth} from '../../Firebase'
 
 import { useForm } from '../../hooks';
-import { AuthContext } from './AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import { Redirect, useLocation, Link } from 'react-router-dom';
 
 export default function Login() {
