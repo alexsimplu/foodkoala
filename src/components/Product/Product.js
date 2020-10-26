@@ -30,7 +30,6 @@ const Product = ({ product, restaurantId }) => {
             <h1>{name}</h1>
             <img src={`${process.env.PUBLIC_URL}/images/${normalize(name)}.jpg`}/>
             <p>{`Price $${price}`}</p>
-            <p>{`RestaurantID ${restaurantId} ProductId ${id}`}</p>
             <p>{`Available: ${available}`}</p>
             <p>{`Products in cart: ${prodQuantity}`}</p>
             <p>
