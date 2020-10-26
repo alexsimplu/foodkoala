@@ -39,13 +39,20 @@ export default function CustomNav() {
                             </li>
                         </>
                     ) : (
-                        <>
+                        <>  
+                        <li className="nav-item">
+                                <SrNavLink className="nav-link" to="/edit">Edit Product</SrNavLink>
+                            </li>
+                            <li className="nav-item">
+                                <SrNavLink className="nav-link" to="/add">Add Product</SrNavLink>
+                            </li>
                             <li className="nav-link">
                                 Welcome, {displayName}!    
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/" onClick={handleLogout}>Logout</a>
                             </li>
+                            
                         </>
                     )}
                 </ul>
